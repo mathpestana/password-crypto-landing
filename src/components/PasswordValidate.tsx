@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { passwordApi, ValidateResponse } from '../services/api';
-import { Eye, EyeOff, AlertCircle } from 'lucide-react';
+import { Eye } from 'lucide-react';
 
 export default function PasswordValidate() {
   const [password, setPassword] = useState('');
@@ -48,8 +48,11 @@ export default function PasswordValidate() {
 
   return (
     <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20">
-       <Eye className="w-8 h-8 text-purple-400" />
-        <h3 className="text-3xl font-bold text-white mb-6">Validar Força da Senha</h3>
+      
+      <div className="flex items-center space-x-3 mb-6">
+        <Eye className="w-8 h-8 text-purple-400" />
+      <h3 className="text-3xl font-bold text-white">Validar Força da Senha</h3>
+      </div>
       
       <form onSubmit={handleValidate} className="mb-6">
         <div className="mb-4">
@@ -60,7 +63,7 @@ export default function PasswordValidate() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
-            placeholder="Digite uma senha para validar"
+            placeholder="Digite uma senha para validar..."
           />
         </div>
         

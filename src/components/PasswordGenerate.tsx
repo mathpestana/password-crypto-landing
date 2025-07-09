@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { passwordApi, GenerateResponse } from '../services/api';
+import { Key } from 'lucide-react';
 
 export default function PasswordGenerate() {
   const [options, setOptions] = useState({
@@ -44,14 +45,18 @@ export default function PasswordGenerate() {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6">
-      <h2 className="text-2xl font-bold text-gray-800 mb-6">Gerar Senha Aleatória</h2>
+    <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20">
       
+      <div className="flex items-center space-x-3 mb-6">
+        <Key className="w-8 h-8 text-purple-400" />
+      <h3 className="text-3xl font-bold text-white">Gerar Senha Segura</h3>
+      </div>
+
       <form onSubmit={handleGenerate} className="mb-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           {/* Comprimento */}
           <div>
-            <label htmlFor="length" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="length" className="block text-sm font-medium text-gray-300 mb-2">
               Comprimento: {options.length}
             </label>
             <input
@@ -63,7 +68,7 @@ export default function PasswordGenerate() {
               onChange={(e) => setOptions({...options, length: parseInt(e.target.value)})}
               className="w-full"
             />
-            <div className="flex justify-between text-xs text-gray-500 mt-1">
+            <div className="flex justify-between text-xs text-gray-300 mt-1">
               <span>4</span>
               <span>128</span>
             </div>
@@ -71,7 +76,7 @@ export default function PasswordGenerate() {
 
           {/* Opções */}
           <div className="space-y-2">
-            <label className="block text-sm font-medium text-gray-700">Incluir:</label>
+            <label className="block text-sm font-medium text-gray-300">Incluir:</label>
             
             <div className="flex items-center">
               <input
@@ -81,7 +86,7 @@ export default function PasswordGenerate() {
                 onChange={(e) => setOptions({...options, numbers: e.target.checked})}
                 className="mr-2"
               />
-              <label htmlFor="numbers" className="text-sm text-gray-700">Números (0-9)</label>
+              <label htmlFor="numbers" className="text-sm text-gray-300">Números (0-9)</label>
             </div>
             
             <div className="flex items-center">
@@ -92,7 +97,7 @@ export default function PasswordGenerate() {
                 onChange={(e) => setOptions({...options, symbols: e.target.checked})}
                 className="mr-2"
               />
-              <label htmlFor="symbols" className="text-sm text-gray-700">Símbolos (!@#$%)</label>
+              <label htmlFor="symbols" className="text-sm text-gray-300">Símbolos (!@#$%)</label>
             </div>
             
             <div className="flex items-center">
@@ -103,7 +108,7 @@ export default function PasswordGenerate() {
                 onChange={(e) => setOptions({...options, uppercase: e.target.checked})}
                 className="mr-2"
               />
-              <label htmlFor="uppercase" className="text-sm text-gray-700">Maiúsculas (A-Z)</label>
+              <label htmlFor="uppercase" className="text-sm text-gray-300">Maiúsculas (A-Z)</label>
             </div>
             
             <div className="flex items-center">
@@ -114,7 +119,7 @@ export default function PasswordGenerate() {
                 onChange={(e) => setOptions({...options, lowercase: e.target.checked})}
                 className="mr-2"
               />
-              <label htmlFor="lowercase" className="text-sm text-gray-700">Minúsculas (a-z)</label>
+              <label htmlFor="lowercase" className="text-sm text-gray-300">Minúsculas (a-z)</label>
             </div>
           </div>
         </div>
