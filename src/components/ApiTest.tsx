@@ -4,6 +4,8 @@
 import { useState } from 'react';
 import axios from 'axios';
 
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+
 export default function ApiTest() {
   const [status, setStatus] = useState<string>('');
   const [loading, setLoading] = useState(false);
@@ -15,7 +17,7 @@ export default function ApiTest() {
     try {
       // Teste simples com uma senha
       const response = await axios.get(
-        'https://password-crypto-api.onrender.com/api/password/encrypt?password=test123',
+        `${API_BASE_URL}/api/password/encrypt?password=test123`,
         { timeout: 30000 }
       );
       
@@ -41,7 +43,7 @@ export default function ApiTest() {
 
     try {
       // Tentativa de "acordar" a API
-      await axios.get('https://password-crypto-api.onrender.com', { timeout: 60000 });
+      await axios.get(`${API_BASE_URL}`, { timeout: 60000 });
       setStatus('✅ API acordada! Tente usar as funcionalidades agora.');
     } catch (error: any) {
       setStatus('⚠️ Tentativa de acordar a API concluída. Tente as funcionalidades agora.');
