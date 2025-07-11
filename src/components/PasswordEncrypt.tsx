@@ -61,7 +61,7 @@ export default function PasswordEncrypt() {
     <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20">
       <div className="flex items-center space-x-3 mb-6">
         <Lock className="w-8 h-8 text-purple-400" />
-        <h3 className="text-3xl font-bold text-white">Gerar Senha Segura</h3>
+        <h3 className="text-3xl font-bold text-white">Criptografar Senha</h3>
       </div>
 
       <form onSubmit={handleEncrypt} className="mb-6">
